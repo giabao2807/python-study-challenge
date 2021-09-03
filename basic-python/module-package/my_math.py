@@ -39,4 +39,4 @@ def fact(n):
         p *= i
     return p
 
-print('--- start of my_math ---')
+print('--- end of my_math ---')
