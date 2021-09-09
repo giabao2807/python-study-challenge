@@ -1,9 +1,10 @@
+# -*- coding: utf-8 -*-
 from Trader import *
 from Transaction import *
 from functools import reduce
 
 trades = [ Trader("Raoul","Cambridge"),Trader("Mario","Milan"), 
-		Trader("Alan","Cambridge"), Trader("Brian", "Cambridge")]
+		Trader("Alan","Cambridge"), Trader("Brian", "Cambridge")] 
 
 transactions =[Transaction(trades[3],2011,200),
 				Transaction(trades[0],2012,1000),
@@ -20,9 +21,7 @@ print("==========")
 for b in transactions:
 	print(b)
 '''
-def printlist(listofO:list):
-	for x in listofO:
-		print(x)
+
 
 
 #output:
@@ -30,30 +29,34 @@ if __name__ == '__main__':
 	#1. Find all transactions in the year 2011 and sort them by value (small to high).
 	cau1=list(filter(lambda p : p.year==2011,transactions))
 	cau1.sort(key = lambda p: p.value)
-	printlist(cau1)
+	for x in cau1:
+		print(x)
 
-	print("======================")
 	#2. Find all transactions have value greater than 300 and sort them by trader’s city
 	cau2 = list(filter(lambda p : p.value>300,transactions))
 	cau2.sort(key = lambda p: p.trader.city)
-	printlist(cau2)
+	for x in cau2:
+		print(x)
 
 	print("======================")
 	#3. What are all the unique cities where the traders work?
 	cau3 = set(map(lambda p: p.trader.city,transactions))
-	printlist(cau3)
+	for x in cau3:
+		print(x)
 
 	print("======================")
 	#4. Find all traders from Cambridge and sort them by name desc.
 	cau4 =list(filter(lambda p:p.city== 'Cambridge',set(map(lambda p : p.trader,transactions))))
 	cau4.sort(key = lambda p : p.name)
-	printlist(cau4)
+	for x in cau4:
+		print(x)
 
 	print("======================")
 	#5. Return a string of all traders’ names sorted alphabetically.
 	cau5 = list(map(lambda p:p.name,set(map(lambda p : p.trader,transactions))))
 	cau5.sort(key = lambda p: p)
-	printlist(cau5)
+	for x in cau5:
+		print(x)
 
 	print("======================")
 	#6. Are any traders based in Milan?
@@ -68,7 +71,8 @@ if __name__ == '__main__':
 	print("======================")
 	#8. Print all transactions’ values from the traders living in Cambridge.
 	cau8 = list(map(lambda p: p.value,filter(lambda p: p.trader.city== 'Cambridge',transactions)))
-	printlist(cau8)
+	for x in cau8:
+		print(x)
 
 	print("======================")
 	#9. What’s the highest value of all the transactions?
