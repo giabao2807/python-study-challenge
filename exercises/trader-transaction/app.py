@@ -1,5 +1,6 @@
 from Trader import *
 from Transaction import *
+from functools import reduce
 
 trades = [ Trader("Raoul","Cambridge"),Trader("Mario","Milan"), 
 		Trader("Alan","Cambridge"), Trader("Brian", "Cambridge")]
@@ -53,6 +54,31 @@ if __name__ == '__main__':
 	cau5 = list(map(lambda p:p.name,set(map(lambda p : p.trader,transactions))))
 	cau5.sort(key = lambda p: p)
 	printlist(cau5)
+
+	print("======================")
+	#6. Are any traders based in Milan?
+	cau6 = list(filter(lambda p:p.city=='Milan',set(map(lambda p : p.trader,transactions))))
+	if len(cau6) > 0:
+		print('Have trader based in Milan')
+
+	print("======================")
+	#7. Count the number of traders in Milan.
+	print(len(cau6) , "trader based in milan")
+
+	print("======================")
+	#8. Print all transactions’ values from the traders living in Cambridge.
+	cau8 = list(map(lambda p: p.value,filter(lambda p: p.trader.city== 'Cambridge',transactions)))
+	printlist(cau8)
+
+	print("======================")
+	#9. What’s the highest value of all the transactions?
+	cau9 = max(map(lambda p:p.value,transactions))
+	print(cau9)
+
+	print("======================")
+	#10. Find the transaction with the smallest value.
+	cau10 = min(map(lambda p :p.value,transactions))
+	print(cau10)
 
 
 
